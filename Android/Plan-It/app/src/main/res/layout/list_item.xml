@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:background="@drawable/back"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_width="110dp"
+        android:layout_height="match_parent"
+        android:text="@string/item"
+        android:id="@+id/item_list_text_item"
+        android:textSize="15sp"/>
+    <TextView
+        android:background="@drawable/back"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_width="90dp"
+        android:layout_height="match_parent"
+        android:text="@string/supplying"
+        android:id="@+id/item_list_text_supplying"
+        android:textSize="15sp"/>
+    <TextView
+        android:background="@drawable/back"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_width="80dp"
+        android:layout_height="match_parent"
+        android:text="@string/estimated_cost"
+        android:id="@+id/item_list_text_estimated_cost"
+        android:textSize="15sp"/>
+    <TextView
+        android:background="@drawable/back"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_width="72dp"
+        android:layout_height="match_parent"
+        android:text="@string/actual_cost"
+        android:id="@+id/item_list_text_estimated_actual_cost"
+        android:textSize="15sp"/>
+    <Image
+</LinearLayout>
