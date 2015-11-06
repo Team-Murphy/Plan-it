@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="5dip" >
+
+    <ImageButton
+        android:layout_width="50dip"
+        android:layout_height="50dip"
+        android:id="@+id/ibDeleteInvitee"
+        android:layout_alignParentLeft="true"
+        android:src="@drawable/ic_delete_black_24dp"/>
+
+    <LinearLayout android:id="@+id/thumbnail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="3dip"
+        android:layout_toRightOf="@id/ibDeleteInvitee"
+        android:layout_marginRight="5dip">
+
+        <ImageView
+            android:layout_width="50dip"
+            android:layout_height="50dip"
+            android:id="@+id/iv_profilePic"
+            android:src="@drawable/no_image"/>
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_attendeeName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/thumbnail"
+        android:textSize="15dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="Attendee One"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/iv_status"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_thumb_up_green_24dp"/>
+
+
+</RelativeLayout>

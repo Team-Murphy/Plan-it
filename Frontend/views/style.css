@@ -31,7 +31,6 @@ h1 {
 }
 
 /* items under left user control panel */
-.menu { 
   background-color: #011627;
   color: #E6E6E6 !important;
   width: 100%;
@@ -108,33 +107,33 @@ h1 {
 }
 
 /* MESSAGE BOARD */
-.chat { 
-  margin-left: 20px; 
+.chat {
+  margin-left: 20px;
   /*margin-right: 20px;*/
 }
-.messages { 
-	list-style-type: none; 
-	margin: 0; 
-	padding: 0; 
+.messages {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
   height: 570px;
   border: 1px solid #666;
 }
-.messages li { 
-	padding: 5px 10px; 
+.messages li {
+	padding: 5px 10px;
 }
 .messages li:nth-child(odd) {
- background: #eee;	
+ background: #eee;
 }
-.inputMessage { 
-  border: 1; 
-  padding: 10px; 
+.inputMessage {
+  border: 1;
+  padding: 10px;
   width: 85%;
 }
 .sendButton {
-  width: 12%; 
-  background: #999; 
-  border: none; 
-  padding: 10px; 
+  width: 12%;
+  background: #999;
+  border: none;
+  padding: 10px;
 }
 
 /* ITEM LIST */
@@ -162,8 +161,16 @@ h1 {
   width: 25%;
 }
 
-
+.login {
+  width: 40%;
+  text-align: center;
+}
+.hello {
+    margin-top: 100px;
+    text-align: center;
+    font-family: "Courier New", Courier, monospace;
+}
 .input-group-addon {
   text-align: left !important;
+  background-color: #fff !important;
 }
-

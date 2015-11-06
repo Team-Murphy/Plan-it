@@ -34,13 +34,21 @@
 
 <div class="row">
     <div class="col-md-5 events">
+        <!--Load all the events -->
+        <button class="btn-block" ng-repeat="event in eventList" ui-sref="event.details({ eventID: event.EventID })">
+          <span class="glyphicon glyphicon-camera"></span>
+          {{event.what}}
+          <br>Your Event
+          <br>{{event.why}}
+          <span style="float:right; color:#FF9F1C; font-size:1em;" class="glyphicon glyphicon-flag"></span>
+        </button>
 
         <a ui-sref="event.details"><button class="btn-block" float="right">
             <span class="glyphicon glyphicon-camera"></span>
             Disneyland - Orlando
             <br>Kevin Murphy's Event
             <br>A whole new world!
-            <span style="float:right; color:#2EC4B6; font-size:1em;" class="glyphicon glyphicon-flag"></span>  
+            <span style="float:right; color:#2EC4B6; font-size:1em;" class="glyphicon glyphicon-flag"></span>
         </button></a>
         <button class="btn-block">
             <span class="glyphicon glyphicon-camera"></span>
@@ -61,7 +69,7 @@
             Disneyland - Orlando
             <br>Kevin Murphy's Event
             <br>A whole new world!
-            <span style="float:right; color:#E71D36; font-size:1em;" class="glyphicon glyphicon-flag"></span>  
+            <span style="float:right; color:#E71D36; font-size:1em;" class="glyphicon glyphicon-flag"></span>
         </button>
         <button class="btn-block">
             <span class="glyphicon glyphicon-camera"></span>
@@ -81,7 +89,7 @@
             Disneyland - Orlando
             <br>Kevin Murphy's Event
             <br>A whole new world!
-            <span style="float:right; color:#E71D36; font-size:1em;" class="glyphicon glyphicon-flag"></span>  
+            <span style="float:right; color:#E71D36; font-size:1em;" class="glyphicon glyphicon-flag"></span>
         </button>
         <button class="btn-block">
             <span class="glyphicon glyphicon-camera"></span>
@@ -101,7 +109,7 @@
             Disneyland - Orlando
             <br>Kevin Murphy's Event
             <br>A whole new world!
-            <span style="float:right; color:#E71D36; font-size:1em;" class="glyphicon glyphicon-flag"></span>  
+            <span style="float:right; color:#E71D36; font-size:1em;" class="glyphicon glyphicon-flag"></span>
         </button>
         <button class="btn-block">
             <span class="glyphicon glyphicon-camera"></span>
@@ -121,7 +129,7 @@
             Disneyland - Orlando
             <br>Kevin Murphy's Event
             <br>A whole new world!
-            <span style="float:right; color:#E71D36; font-size:1em;" class="glyphicon glyphicon-flag"></span>  
+            <span style="float:right; color:#E71D36; font-size:1em;" class="glyphicon glyphicon-flag"></span>
         </button>
         <button class="btn-block">
             <span class="glyphicon glyphicon-camera"></span>
@@ -138,9 +146,22 @@
             <span style="float:right; color:#E71D36; font-size:1em;" class="glyphicon glyphicon-flag"></span>
         </button>
     </div>
-    
+
     <div class="col-md-7">
-        <div ui-view="rightView"></div>
+        <div ui-view="rightView">
+            <div class="hello">
+            <span style="color:#2B2D32; font-size:6em;" class="glyphicon glyphicon-flag"></span>
+            <br>
+            <span style="color:#706460; font-size: 4em;">e</span>
+            <span style="color:#4B4342; font-size: 4em;">v</span>
+            <span style="color:#706460; font-size: 4em;">e</span>
+            <span style="color:#B1A08F; font-size: 4em;">n</span>
+            <span style="color:#C8B1AB; font-size: 4em;">t</span>
+            <span style="color:#99A7A2; font-size: 4em;">s</span>
+            <br>
+            { CLICK AN EVENT TO VIEW IT HERE }
+            </div>
+        </div>
     </div>
 
 </div>

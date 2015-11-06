@@ -33,7 +33,8 @@
         </activity>
         <activity
             android:name=".ViewEventActvity"
-            android:label="@string/title_activity_view_event_actvity" >
+            android:label="@string/title_activity_view_event_actvity"
+            android:windowSoftInputMode="stateHidden|adjustPan">
         </activity>
         <activity
             android:name=".MainActivity"

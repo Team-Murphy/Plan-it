@@ -6,30 +6,22 @@
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    tools:context="com.plan_it.mobile.plan_it.CreateEventActivity"
-    android:background="#a488c9d1">
+    tools:context="com.plan_it.mobile.plan_it.CreateEventActivity">
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:id="@+id/create_eventphoto"
         android:src="@drawable/no_image"
         android:layout_gravity="center_horizontal"
-        android:onClick="imageOptions"
-        android:background="@drawable/border" />
+        android:onClick="imageOptions" />
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="2"
-        android:gravity="center_horizontal"
-        android:background="@drawable/border_box"
-        android:theme="@android:style/TextAppearance.Large.Inverse"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:paddingTop="20dp">
-
+        android:gravity="center_horizontal">
 
         <TextView
             android:layout_width="fill_parent"
@@ -49,7 +41,8 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:inputType="text"
-            android:hint="Please enter a title for the event" />
+            android:drawableRight="@drawable/ic_edit_blue_24dp"
+            android:hint="title of event?" />
 
         <TextView
             android:layout_width="fill_parent"
@@ -69,13 +62,14 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:inputType="text"
-            android:hint="Describe the event" />
+            android:drawableRight="@drawable/ic_edit_blue_24dp"
+            android:hint="describe the event?" />
 
         <TextView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Where is the event?"
+            android:text="where is the event?"
             android:id="@+id/textView3"
             android:layout_below="@+id/event_reason"
             android:layout_alignParentLeft="true"
@@ -89,7 +83,8 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:inputType="text"
-            android:hint="Enter the location of the event" />
+            android:drawableRight="@drawable/ic_edit_blue_24dp"
+            android:hint="Location of event?" />
 
         <LinearLayout
             android:layout_width="match_parent"

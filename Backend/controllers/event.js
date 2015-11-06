@@ -7,7 +7,9 @@ event.createEvent = function(req, res, next) {
     "what": req.body.what,
     "why": req.body.why,
     "where": req.body.where,
-    "when": req.body.when
+    "when": req.body.when,
+    "fromTime" : req.body.from,
+    "toTime" : req.body.to
   });
 
   event.save(function(err) {

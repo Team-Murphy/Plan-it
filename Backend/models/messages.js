@@ -6,7 +6,7 @@ var database = require('../database');
 
 var messagesSchema = new Schema(
   {
-    events: [{ message: String, eventID: Number, userID: Number}]
+    events: [{ message: String, eventID: Number, userID: Number, time: {type: Date, default: Date.now} }]
   }
 );
 

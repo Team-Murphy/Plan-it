@@ -1,23 +1,37 @@
 // var app = angular.module('planItApp', ['ngRoute']);
-var app = angular.module('planItApp', ['ui.router']);
+var app = angular.module('planItApp', ['ui.router', 'services', 'eventController']);
 
 //to route views on single page
 app.config(['$stateProvider',
   function ($stateProvider) {
     $stateProvider
+        .state('/', {
+            url: '',
+            views: {
+                    templateUrl: 'index.html'
+            }
+        })
+        .state('signup', {
+            url: '/signup',
+            views: {
+                'generalView': {
+                    templateUrl: 'signup.html'
+                }
+            }
+        })
         .state('event', {
             url: '/event',
             views: {
                 'generalView': {
-                    templateUrl: 'event.html'
+                    templateUrl: 'event.html', controller: 'EventListController'
                 }
             }
         })
         .state('event.details', {
-            url: '',
+            url: '/eventinfo/:eventID',
             views: {
                 'rightView': {
-                    templateUrl: 'event.details.html'
+                    templateUrl: 'event.details2.html', controller:'EventDetailsController'
                 }
             }
         })
@@ -49,7 +63,7 @@ app.config(['$stateProvider',
             url: '',
             views: {
                 'rightView': {
-                    templateUrl: 'event.create.html'
+                    templateUrl: 'event.create.html', controller: 'CreateEventController'
                 }
            }
         })
@@ -69,7 +83,7 @@ app.config(['$stateProvider',
                 }
             }
         })
-    
+
     }]);
 
 //to extract socket object to be used in controller
