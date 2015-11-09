@@ -1,0 +1,59 @@
+
+<div class="row hello">
+    <!-- <span style="color:#2B2D32; font-size:4em;" class="glyphicon glyphicon-cog"></span> -->
+    <span style="color:#4B4342; font-size: 4em;">a</span>
+    <span style="color:#B1A08F; font-size: 4em;">c</span>
+    <span style="color:#B1A08F; font-size: 4em;">c</span>
+    <span style="color:#706460; font-size: 4em;">o</span>
+    <span style="color:#C8B1AB; font-size: 4em;">u</span>
+    <span style="color:#99A7A2; font-size: 4em;">n</span>
+    <span style="color:#4B4342; font-size: 4em;">t</span>
+    <br><br>
+</div>
+
+<div class="row col-md-4 col-md-offset-2 account">
+    <form class="form-horizontal" action="/update" method="post">
+
+<!--         <div class="row">
+            <img src="https://wilmywood.files.wordpress.com/2015/08/tumblr_static_chris-evans-v_a7431_1_png_640x480_upscale_q90.jpg" class="img-circle" width="120" height="120"><br><br>
+        </div> -->
+
+        <label for="photo" class="control-label">Update Photo</label>
+        <input type="file" class="form-control" id="photo" accept="image/*">
+
+        <label for="fName" class="control-label">First Name</label>
+        <input type="password" class="form-control" id="fName" placeholder="First name">
+
+        <label for="lName" class="control-label">Last Name</label>
+        <input type="password" class="form-control" id="lName" placeholder="Last name">
+
+        <!-- <div class="row"> -->
+            <button type="submit" class="btn btn-default">Update</button>
+            <button type="reset" class="btn btn-default">Clear</button>
+        <!-- </div> -->
+
+    </form>
+</div>
+
+<div class="row col-md-4 col-md-offset-1 account">
+    <form class="form-horizontal" action="/update" method="post">
+
+        <label for="pwOld" class="control-label">Old Password</label>
+        <input type="password" class="form-control" id="pwOld" placeholder="Enter a unique username">
+
+        <label for="pwNew" class="control-label">New Password</label>
+        <input type="password" class="form-control" id="pwNew" placeholder="Enter your password">
+        
+        <label for="pwConfirm" class="control-label">Confirm Password</label>
+        <input type="password" class="form-control" id="pwConfirm" placeholder="Confirm your password">
+        
+        <!-- <div class="row col-md-6 col-md-offset-6"> -->
+            <button type="submit" class="btn btn-default">Update</button>
+            <button type="reset" class="btn btn-default">Clear</button>
+        <!-- </div> -->
+
+        <!-- <span class="error" ng-show="">Invalid passworld.</span> -->
+        <!-- <span class="error" ng-show="">Password does not match.</span> -->
+
+    </form>
+</div>

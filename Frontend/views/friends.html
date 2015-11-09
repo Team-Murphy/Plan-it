@@ -1,60 +1,63 @@
 <div class="row">
     <nav class="navbar navbar-default">
         <ul class="nav navbar-nav nav-tabs nav-friends">
-            <li role="presentation"><a ui-sref="contact">
+            <li role="presentation"><a ui-sref="friends" class="active">
                 <span class="glyphicon glyphicon-heart"></span> Current Friends</a></li>
-            <li role="presentation"><a ui-sref="contact">
-                <span class="glyphicon glyphicon-search"></span> Search Friends</a></li>
+            <li role="presentation"><a ui-sref="users">
+                <span class="glyphicon glyphicon-search"></span> Search Users</a></li>
         </ul>
     </nav>
 </div>
 
+<!-- Change to filter instead -->
+<div class="row searchfriend">
+        <input type="text" placeholder="Search for friends by Email or Username" class="form-control">
+</div>
+
 <div class="row">
     <div class="col-md-5 contacts">
-    
-        <input type="text" placeholder="Search for friends by Email or Username" class="form-control">
 
-        <button class="btn-block" float="right">
+        <button ui-sref="friends.profile" class="btn-block" float="right">
             <span class="glyphicon glyphicon-user"></span>
             <!-- <img src="" class="img-circle" />-->
-            First Last
-            <br>@username
+            Kevin Murphy
+            <br>@kmurphy
         </button>
         <button class="btn-block" float="right">
             <span class="glyphicon glyphicon-user"></span>
             <!-- <img src="" class="img-circle" />-->
-            First Last
-            <br>@username
+            Kamran Syed
+            <br>@ksyed
         </button>
         <button class="btn-block" float="right">
             <span class="glyphicon glyphicon-user"></span>
             <!-- <img src="" class="img-circle" />-->
-            First Last
-            <br>@username
+            Kristian Castaneda
+            <br>@kcastaneda
         </button>
         <button class="btn-block" float="right">
             <span class="glyphicon glyphicon-user"></span>
             <!-- <img src="" class="img-circle" />-->
-            First Last
-            <br>@username
+            Joanne Tanson
+            <br>@jtanson
         </button>
         <button class="btn-block" float="right">
             <span class="glyphicon glyphicon-user"></span>
             <!-- <img src="" class="img-circle" />-->
-            First Last
-            <br>@username
+            Luke Farnell
+            <br>@lfarnell
         </button>
         <button class="btn-block" float="right">
             <span class="glyphicon glyphicon-user"></span>
             <!-- <img src="" class="img-circle" />-->
-            First Last
-            <br>@username
+            Mohammed Sumon
+            <br>@msumon
         </button>
         <button class="btn-block" float="right">
             <span class="glyphicon glyphicon-user"></span>
             <!-- <img src="" class="img-circle" />-->
-            First Last
-            <br>@username
+            Amina Abbasi
+            <br>@aabbasi
         </button>
         <button class="btn-block" float="right">
             <span class="glyphicon glyphicon-user"></span>
@@ -108,7 +111,7 @@
             <span style="color:#B1A08F; font-size: 4em;">t</span>
             <span style="color:#99A7A2; font-size: 4em;">s</span>
             <br>
-            <input type="text" placeholder="Search for friends by Email or Username" class="form-control">    
+            <span class="form-control">Search for friends by Email or Username</span>
             </div>
         </div>
     </div>

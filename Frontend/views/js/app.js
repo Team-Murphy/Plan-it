@@ -31,7 +31,7 @@ app.config(['$stateProvider',
             url: '/eventinfo/:eventID',
             views: {
                 'rightView': {
-                    templateUrl: 'event.details2.html', controller:'EventDetailsController'
+                    templateUrl: 'event.details.html', controller:'EventDetailsController'
                 }
             }
         })
@@ -75,11 +75,43 @@ app.config(['$stateProvider',
                 }
             }
         })
-        .state('contact', {
-            url: '/contact',
+        .state('friends', {
+            url: '/friends',
             views: {
                 'generalView': {
-                    templateUrl: 'contact.html'
+                    templateUrl: 'friends.html'
+                }
+            }
+        })
+        .state('friends.profile', {
+            url: '',
+            views: {
+                'rightView': {
+                    templateUrl: 'friends.profile.html'
+                }
+            }
+        })
+        .state('users', {
+            url: '/users',
+            views: {
+                'generalView': {
+                    templateUrl: 'users.html'
+                }
+            }
+        })
+        .state('users.profile', {
+            url: '',
+            views: {
+                'rightView': {
+                    templateUrl: 'users.profile.html'
+                }
+            }
+        })
+        .state('account', {
+            url: '/account',
+            views: {
+                'generalView': {
+                    templateUrl: 'account.html'
                 }
             }
         })

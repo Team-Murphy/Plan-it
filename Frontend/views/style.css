@@ -3,10 +3,6 @@ html, body {
   height: 100% !important;
 }
 
-a:hover {
-  text-decoration: none !important;
-}
-
 h1 {
   color: #fff !important;
 }
@@ -29,8 +25,8 @@ h1 {
 .user button {
   height: 50px;
 }
-.brand {
-  border: 0px;
+.user a:hover, a:active, a:link, a:visited {
+  text-decoration: none !important;
 }
 
 /* items under left user control panel */
@@ -51,19 +47,16 @@ h1 {
 }
 
 /* NAVBAR */
-.navbar-right {
-  margin-right: 5px !important;
-}
-.nav-friends a {
-  color: #99A7A2 !important;
-}
-.nav-friends a:focus {
-  color: #706460 !important;
-  border-bottom: 1px solid #000 !important;
-}
 .searchbox {
   margin-top: 2.5px !important;
   margin-bottom: 0px !important;
+}
+.navbar-right {
+  margin-right: 5px !important;
+}
+.navbar-right a:focus {
+  color: #706460 !important;
+  border-bottom: 1px solid #000 !important;
 }
 .nav-friends a {
   width: 195px;
@@ -71,19 +64,24 @@ h1 {
   color: #99A7A2 !important;
   border-right: 1px #99A7A2 solid !important;
 }
-.nav-friends a:focus {
+.nav-friends a:focus,
+.nav-friends .active {
   color: #706460 !important;
   border-bottom: 1px solid #000 !important;
+}
+nav {
+  margin-bottom: 5px !important;
 }
 
 /* EVENT LIST */
 .events {
   overflow: auto;
-  height: 570px;
+  height: 620px;
 }
 .events button {
   text-align: left;
   background-color: #fff;
+  margin-top: 5px;
   border-top: 0px;
   border-left: 0px;
   border-right: 0px;
@@ -91,12 +89,13 @@ h1 {
 .events span {
   float: left;
   font-size: 4em;
+  margin-top: 5px;
   padding-right: 10px;
 }
 
-/* MESSAGE DETAILS */
+/* EVENT DETAILS */
 .details {
-  /*margin-left: 40px;*/
+
 }
 .invitee {
   /*table-layout: fixed;*/
@@ -178,14 +177,17 @@ h1 {
 /* CONTACT LIST */
 .contacts {
   overflow: auto;
-  height: 600px;
+  height: 570px;
 }
-.contacts input {
-  margin-top: 0px;
+.searchfriend input {
+  margin:5px 30px 5px 30px;
+  height:40px;
+  width:350px;
 }
 .contacts button {
   text-align: left;
   background-color: #fff;
+  margin-top: 5px;
   border-top: 0px;
   border-left: 0px;
   border-right: 0px;
@@ -193,15 +195,39 @@ h1 {
 .contacts span {
   float: left;
   font-size: 4em;
+  margin-top: 5px;
   padding-right: 10px;
 }
 .contacts .glyphicon-user {
   font-size: 2.5em;
 }
 
+/* PROFILE */
+.profile {
+  text-align: center;
+}
+
+/* ACCOUNT SETTINGS */
+.account {
+  border-left: 1px #666 solid;
+}
+.account label {
+  padding-bottom: 10px;
+}
+
 /* OTHERS */
+
+.wh {
+  float: left;
+}
+.error {
+  float: right;
+  margin-top: 16px;
+  font-size:0.8em;
+  color: red;
+}
 .login {
-  width: 40%;
+  /*width: 40%;*/
   text-align: center;
 }
 .hello {

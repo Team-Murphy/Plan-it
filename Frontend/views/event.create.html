@@ -2,33 +2,39 @@
 <div class="row">
 <form class="form-group col-md-offset-1" name="new_event_form" id="createEvent" novalidate ng-submit="createEvent()">
 
-    <h4>What <small>shall we call the event</small></h4>
-    <input class="form-control" type="text" ng-model="event.what" name="what" id="what" placeholder="Title" ng-pattern="" required />
+    <h4 class="wh">What <small>shall we call the event</small></h4>
     <span class="error" ng-show="new_event_form.what.$error.required && new_event_form.submitted">Cannot leave what field empty.</span>
     <span class="error" ng-show="new_event_form.what.$error.pattern">Not a valid title.</span>
+    <input class="form-control" type="text" ng-model="event.what" name="what" id="what" placeholder="Title" ng-pattern="" required />
 
-    <h4>Where <small>is the event taking place</small></h4>
-    <input class="form-control" type="text" ng-model="event.where" name="where" id="where" placeholder="Location" required>
+    <h4 class="wh">Where <small>is the event taking place</small></h4>
     <span class="error" ng-show="new_event_form.where.$error.required && new_event_form.submitted">Cannot leave where field empty.</span>
     <span class="error" ng-show="new_event_form.where.$error.pattern"></span>
-
+    <input class="form-control" type="text" ng-model="event.where" name="where" id="where" placeholder="Location" required>
+   
     <span class="start">
         <h4>When <small>does the event start</small></h4>
-        <input class="form-control" type="date" ng-model="event.when" required>
-        <input class="form-control" type="time" required>
+        <input class="form-control" type="datetime-local" ng-model="event.when" required>
+        <!-- datetime-local does not work for IE or FF -->
+        <!-- <input class="form-control" type="date" ng-model="event.when" required> -->
+        <!-- <input class="form-control" type="time" required> -->
     </span>
     <span class="end">
         <h4><small>end</small></h4>
-        <input class="form-control" type="date" required>
-        <input class="form-control" type="time" required>
+        <input class="form-control" type="datetime-local" ng-model="event.when" required>
+        <!-- <input class="form-control" type="date" required> -->
+        <!-- <input class="form-control" type="time" required> -->
     </span>
+    <!-- missing "when" error message, doesn't fit well in layout, maybe use javascript to focus the field -->
 
-    <h4>Why <small>are we having an event?</small></h4>
-    <textarea class="form-control" rows="3" ng-model="event.why" name="why" id="why" form="createEvent" required>Description</textarea>
+    <h4 class="wh">Why <small>are we having an event?</small></h4>
     <span class="error" ng-show="new_event_form.why.$error.required && new_event_form.submitted">Cannot leave why field empty.</span>
     <span class="error" ng-show="new_event_form.why.$error.pattern"></span>
+    <textarea class="form-control" rows="3" ng-model="event.why" name="why" id="why" form="createEvent" required>Description</textarea>
 
-    <h4>Invite <small>people</small></h4>
+    <br>
+
+    <h4 class="wh">Invite <small>people</small></h4>
     <ul class="invitee">
         <li><span class="input-group-addon"><input type="checkbox"> Amina Abbasi</span></li>
         <li><span class="input-group-addon"><input type="checkbox"> Clark Kent</span></li>

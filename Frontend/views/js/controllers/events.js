@@ -41,3 +41,20 @@ else {
   }
 );
 });
+
+// .controller('EventDetailsController', function ($location, $scope, $stateParams, ServiceForEvents){
+//   $scope.id = $stateParams.eventID;
+
+//   console.log($scope.id);
+
+//   ServiceForEvents.getEventById($scope.id).success(function (data)
+//   {
+//     // shouldn't be able to go to event details if no event selected
+//     // make sure eventID persists between tabs (e.g. going to budget and back to details)
+//     if ($scope.id == '')
+//       $location.path('event');
+//     else
+//       $scope.event = data;
+//   }
+// );
+// });

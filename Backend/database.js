@@ -47,8 +47,10 @@ database.initUserIncrement = function(){
 //database.connection = db;
 //Create List Model
 database.listModel = mongoose.model("List", listjs);
-
+//Create Event Model
 database.eventModel = mongoose.model("Event", eventjs);
+//Create User model
+database.userModel = mongoose.model("User", userjs);
 
 database.eventModel.calculateEst = function(eventid, callback) {
     console.log('event id is: ' + eventid);
@@ -72,5 +74,3 @@ database.eventModel.calculateEst = function(eventid, callback) {
       callback(result);
     });
   }
-  //Create User model
-database.userModel = mongoose.model("User", userjs);

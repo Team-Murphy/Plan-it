@@ -11,7 +11,10 @@ var database = require('../database');
 var userSchema = new Schema(
   {
     UserID: Number,
-    friendlyName: { type: String, required: true },
+    friendlyName: { type: String, required: true, unique: true },
+    firstName: {type: String, required: false},
+    lastName: {type: String, required: false},
+    profilePic: {type: String, required: false},
     email: { type: String, required: true, unique: true },
     hashPassword: { type: String, required: true},
     friendList: [{_id: false, userID: {type: Number, required: true}, isFavorite: {type: Boolean, default: true } }],
