@@ -40,5 +40,4 @@
         android:text="@string/actual_cost"
         android:id="@+id/item_list_text_estimated_actual_cost"
         android:textSize="15sp"/>
-    <Image
 </LinearLayout>
