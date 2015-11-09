@@ -19,7 +19,7 @@ h1 {
 /* the left user control panel */
 .user {
   text-align: center;
-  background-color: #011627;
+  background-color: #011627 !important;
   color: #E6E6E6 !important;
   float: none;
   /*height: 685px;*/
@@ -29,8 +29,12 @@ h1 {
 .user button {
   height: 50px;
 }
+.brand {
+  border: 0px;
+}
 
 /* items under left user control panel */
+.menu {
   background-color: #011627;
   color: #E6E6E6 !important;
   width: 100%;
@@ -46,15 +50,36 @@ h1 {
   height: 100% !important;
 }
 
-/* right side of top navbar */
+/* NAVBAR */
 .navbar-right {
   margin-right: 5px !important;
+}
+.nav-friends a {
+  color: #99A7A2 !important;
+}
+.nav-friends a:focus {
+  color: #706460 !important;
+  border-bottom: 1px solid #000 !important;
+}
+.searchbox {
+  margin-top: 2.5px !important;
+  margin-bottom: 0px !important;
+}
+.nav-friends a {
+  width: 195px;
+  text-align: center;
+  color: #99A7A2 !important;
+  border-right: 1px #99A7A2 solid !important;
+}
+.nav-friends a:focus {
+  color: #706460 !important;
+  border-bottom: 1px solid #000 !important;
 }
 
 /* EVENT LIST */
 .events {
   overflow: auto;
-  height: 600px;
+  height: 570px;
 }
 .events button {
   text-align: left;
@@ -115,7 +140,7 @@ h1 {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
-  height: 570px;
+  height: 520px;
   border: 1px solid #666;
 }
 .messages li {
@@ -137,30 +162,44 @@ h1 {
 }
 
 /* ITEM LIST */
-.list {
-  margin-left: 30px;
+.items {
+  margin-left: 20px;
   table-layout: fixed;
   border-collapse: collapse;
-  width: 90%;
-}
-.list th, td input {
   width: 95%;
 }
-
-/* BUDGET */
-.budget {
-  margin-left: 30px;
-  /*table-layout: fixed;*/
-  border-collapse: collapse;
+.items th:first-child, td:first-child {
+  width: 120%;
+}
+.items th, td input {
   width: 90%;
 }
-.budget td:first-child {
-  width: 50%;
+
+/* CONTACT LIST */
+.contacts {
+  overflow: auto;
+  height: 600px;
 }
-.budget th, td {
-  width: 25%;
+.contacts input {
+  margin-top: 0px;
+}
+.contacts button {
+  text-align: left;
+  background-color: #fff;
+  border-top: 0px;
+  border-left: 0px;
+  border-right: 0px;
+}
+.contacts span {
+  float: left;
+  font-size: 4em;
+  padding-right: 10px;
+}
+.contacts .glyphicon-user {
+  font-size: 2.5em;
 }
 
+/* OTHERS */
 .login {
   width: 40%;
   text-align: center;

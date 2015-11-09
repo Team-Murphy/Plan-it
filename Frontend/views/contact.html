@@ -1,74 +1,116 @@
 <div class="row">
     <nav class="navbar navbar-default">
-        <ul class="nav navbar-nav navbar-left">
-            <li role="presentation"><a ui-sref="#">
-                <span class="glyphicon glyphicon-plus"></span> New</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Filter <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Name</a></li>
-                    <li><a href="#">Email</a></li>
-                </ul>
-            </li>
+        <ul class="nav navbar-nav nav-tabs nav-friends">
+            <li role="presentation"><a ui-sref="contact">
+                <span class="glyphicon glyphicon-heart"></span> Current Friends</a></li>
+            <li role="presentation"><a ui-sref="contact">
+                <span class="glyphicon glyphicon-search"></span> Search Friends</a></li>
         </ul>
-        <form class="navbar-form navbar-left" role="search">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search">
-            </div>
-            <button type="submit" class="btn btn-default">
-                <span class="glyphicon glyphicon-search"></span>
-            </button>
-        </form>
     </nav>
 </div>
 
 <div class="row">
-    <div class="col-md-5 events">
+    <div class="col-md-5 contacts">
+    
+        <input type="text" placeholder="Search for friends by Email or Username" class="form-control">
 
         <button class="btn-block" float="right">
             <span class="glyphicon glyphicon-user"></span>
-            Contact Name
-            <br>contact@email.com 
+            <!-- <img src="" class="img-circle" />-->
+            First Last
+            <br>@username
         </button>
         <button class="btn-block" float="right">
             <span class="glyphicon glyphicon-user"></span>
-            Contact Name
-            <br>contact@email.com 
+            <!-- <img src="" class="img-circle" />-->
+            First Last
+            <br>@username
         </button>
         <button class="btn-block" float="right">
             <span class="glyphicon glyphicon-user"></span>
-            Contact Name
-            <br>contact@email.com 
+            <!-- <img src="" class="img-circle" />-->
+            First Last
+            <br>@username
         </button>
         <button class="btn-block" float="right">
             <span class="glyphicon glyphicon-user"></span>
-            Contact Name
-            <br>contact@email.com 
+            <!-- <img src="" class="img-circle" />-->
+            First Last
+            <br>@username
         </button>
         <button class="btn-block" float="right">
             <span class="glyphicon glyphicon-user"></span>
-            Contact Name
-            <br>contact@email.com 
+            <!-- <img src="" class="img-circle" />-->
+            First Last
+            <br>@username
         </button>
         <button class="btn-block" float="right">
             <span class="glyphicon glyphicon-user"></span>
-            Contact Name
-            <br>contact@email.com 
+            <!-- <img src="" class="img-circle" />-->
+            First Last
+            <br>@username
         </button>
         <button class="btn-block" float="right">
             <span class="glyphicon glyphicon-user"></span>
-            Contact Name
-            <br>contact@email.com 
+            <!-- <img src="" class="img-circle" />-->
+            First Last
+            <br>@username
         </button>
         <button class="btn-block" float="right">
             <span class="glyphicon glyphicon-user"></span>
-            Contact Name
-            <br>contact@email.com 
+            <!-- <img src="" class="img-circle" />-->
+            First Last
+            <br>@username
+        </button>
+        <button class="btn-block" float="right">
+            <span class="glyphicon glyphicon-user"></span>
+            <!-- <img src="" class="img-circle" />-->
+            First Last
+            <br>@username
+        </button>
+        <button class="btn-block" float="right">
+            <span class="glyphicon glyphicon-user"></span>
+            <!-- <img src="" class="img-circle" />-->
+            First Last
+            <br>@username
+        </button>
+        <button class="btn-block" float="right">
+            <span class="glyphicon glyphicon-user"></span>
+            <!-- <img src="" class="img-circle" />-->
+            First Last
+            <br>@username
+        </button>
+        <button class="btn-block" float="right">
+            <span class="glyphicon glyphicon-user"></span>
+            <!-- <img src="" class="img-circle" />-->
+            First Last
+            <br>@username
+        </button>
+        <button class="btn-block" float="right">
+            <span class="glyphicon glyphicon-user"></span>
+            <!-- <img src="" class="img-circle" />-->
+            First Last
+            <br>@username
         </button>
     </div>
     
-    <div class="col-md-7">
-        <div ui-view="rightView"></div>
+    <div class="col-md-5 col-md-offset-1">
+        <div ui-view="rightView">
+            <div class="hello">
+            <span style="color:#2B2D32; font-size:6em;" class="glyphicon glyphicon-heart-empty"></span>
+            <br>
+            <span style="color:#706460; font-size: 4em;">c</span>
+            <span style="color:#4B4342; font-size: 4em;">o</span>
+            <span style="color:#706460; font-size: 4em;">n</span>
+            <span style="color:#B1A08F; font-size: 4em;">t</span>
+            <span style="color:#C8B1AB; font-size: 4em;">a</span>
+            <span style="color:#706460; font-size: 4em;">c</span>
+            <span style="color:#B1A08F; font-size: 4em;">t</span>
+            <span style="color:#99A7A2; font-size: 4em;">s</span>
+            <br>
+            <input type="text" placeholder="Search for friends by Email or Username" class="form-control">    
+            </div>
+        </div>
     </div>
 
 </div>

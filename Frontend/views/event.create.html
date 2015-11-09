@@ -2,23 +2,25 @@
 <div class="row">
 <form class="form-group col-md-offset-1" name="new_event_form" id="createEvent" novalidate ng-submit="createEvent()">
 
-    <h4>What <small>shall we call the event?</small></h4>
+    <h4>What <small>shall we call the event</small></h4>
     <input class="form-control" type="text" ng-model="event.what" name="what" id="what" placeholder="Title" ng-pattern="" required />
     <span class="error" ng-show="new_event_form.what.$error.required && new_event_form.submitted">Cannot leave what field empty.</span>
     <span class="error" ng-show="new_event_form.what.$error.pattern">Not a valid title.</span>
 
-    <h4>Where <small>is the event taking place?</small></h4>
+    <h4>Where <small>is the event taking place</small></h4>
     <input class="form-control" type="text" ng-model="event.where" name="where" id="where" placeholder="Location" required>
     <span class="error" ng-show="new_event_form.where.$error.required && new_event_form.submitted">Cannot leave where field empty.</span>
     <span class="error" ng-show="new_event_form.where.$error.pattern"></span>
 
     <span class="start">
-        <h4>When <small>is the event</small></h4>
+        <h4>When <small>does the event start</small></h4>
         <input class="form-control" type="date" ng-model="event.when" required>
+        <input class="form-control" type="time" required>
     </span>
     <span class="end">
-        <h4><small>until</small></h4>
+        <h4><small>end</small></h4>
         <input class="form-control" type="date" required>
+        <input class="form-control" type="time" required>
     </span>
 
     <h4>Why <small>are we having an event?</small></h4>
@@ -39,11 +41,9 @@
         <li><span class="input-group-addon"><input type="checkbox"> Patrick Star</span></li>
     </ul>
 
-    <br><br>
-
-    <div class="col-md-offset-8">
-        <input class="btn btn-default btn-lg" type="reset" ng-click="reset()" value="Clear">
-        <input class="btn btn-primary btn-lg" type="submit" ng-click="" value="Create">
+    <div style="text-align: center;">
+        <input class="btn btn-default" type="reset" ng-click="reset()" value="Clear">
+        <input class="btn btn-primary" type="submit" ng-click="" value="Create">
     </div>
 
 </form>
