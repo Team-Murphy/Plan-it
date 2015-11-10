@@ -15,7 +15,8 @@ user.createUser = function(req, res, next ){
     "email": req.body.email,
     "hashPassword": req.body.hashPassword,
     "firstName": req.body.firstName,
-    "lastName": req.body.lastName
+    "lastName": req.body.lastName,
+    "profilePic": req.body.profilePic
   });
 
   //Find an existing email address or friendlyName, due to unique constraint on fields
@@ -96,6 +97,7 @@ user.findUserByFriendlyNameOrEmail = function(req, res, next)
   }).select({_id:0, email:1, friendlyName: 1, UserID: 1, firstName: 1, lastName:1})
 };
 
+//Update a user information depending on the User ID sent
 user.updateUser = function(req, res, next)
 {
 
@@ -189,7 +191,10 @@ user.getAllFriends = function(req, res, next)
       }
     }
     )
-
-
-
 };
+
+//Delete Friend from a User's friend list
+user.remove = function(req, res, next)
+{
+  
+}

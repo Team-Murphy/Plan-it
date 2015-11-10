@@ -19,9 +19,10 @@ var event = new mongoose.Schema({
   why: String,
   where: String,
   when: String,
+  endDate: String,
   picture: String,
-  fromTime: Number,
-  toTime: Number
+  fromTime: String,
+  toTime: String
 });
 
 module.exports = event;
