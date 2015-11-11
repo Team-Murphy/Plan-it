@@ -40,6 +40,12 @@ public class EventsListActivity extends AppCompatActivity implements SearchView.
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initializeData();
+<<<<<<< HEAD
+        mEvents = new ArrayList<>();
+        for (Event event: events) {
+            mEvents.add(new Event(event.name, event.owner, event.description, event.photoId,event.date,event.isAttending,event.itemList, event.messageBoard));
+            Log.d("mEvents", "name " + event.name + "owner " + event.owner + "description " + event.description + "photoId " + event.photoId);
+=======
         adapter = new EventsListAdapter(this, mEvents);
         setContentView(R.layout.activity_events_list);
         events_recycler_view = (RecyclerView)findViewById(R.id.events_list_recycler_view);
@@ -54,7 +60,16 @@ public class EventsListActivity extends AppCompatActivity implements SearchView.
             getEventsList();
         } catch (JSONException e) {
             e.printStackTrace();
+>>>>>>> e7e5683aa9bd4d15f692512345278899145a4b52
         }
+
+        adapter = new EventsListAdapter(this, mEvents);
+        setContentView(R.layout.activity_events_list);
+        events_recycler_view = (RecyclerView)findViewById(R.id.events_list_recycler_view);
+        LinearLayoutManager llm = new LinearLayoutManager(this);
+        events_recycler_view.setLayoutManager(llm);
+        events_recycler_view.setAdapter(adapter);
+        adapter.animateTo(mEvents);
     }
 
     @Override
@@ -103,12 +118,12 @@ public class EventsListActivity extends AppCompatActivity implements SearchView.
     public boolean onQueryTextSubmit(String query) {
         return false;
     }
-    private List<Event> filter(List<Event> events, String query) {
+    private List<Event> filter(List<Event> mEvents, String query) {
 
         query = query.toLowerCase();
 
             final List<Event> filteredModelList = new ArrayList<>();
-            for (Event event : events) {
+            for (Event event : mEvents) {
                 final String text = event.name.toLowerCase();
                 if (text.contains(query)) {
                     filteredModelList.add(event);
