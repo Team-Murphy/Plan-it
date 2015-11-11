@@ -198,5 +198,5 @@ user.getAllFriends = function(req, res, next)
 //Delete Friend from a User's friend list
 user.remove = function(req, res, next)
 {
-  
+
 }

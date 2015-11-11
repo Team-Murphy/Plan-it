@@ -67,6 +67,8 @@ event.deleteEvent = function(req, res, next) {
 }
 
 event.createListItem = function(req, res, next) {
+
+  console.log(req.body);
   database.eventModel.findOne({
     "EventID": req.params.id
   }, function(err, event) {
@@ -81,13 +83,15 @@ event.createListItem = function(req, res, next) {
       event.itemList.push(list);
 
       database.eventModel.calculateEst(req.params.id, function(result) {
-        event.totalEstCost = result[0].estCost;
-        event.totalActCost = result[0].actCost;
+        event.totalEstCost = result.estCost;
+        event.totalActCost = result.actCost;
         event.save(function(err) {
           if (err)
             console.log(err);
-          else
+          else{
+            console.log("Hit");
             res.sendStatus(201);
+          }
         });
       });
     }
@@ -102,6 +106,60 @@ event.getListItems = function(req, res, next) {
       console.log(err);
     else {
       res.json(events.itemList);
+    }
+  });
+}
+
+event.claimItem = function(req, res, next){
+  //console.log("req params: " + JSON.stringify(req.params, 4, null));
+  database.eventModel.update({"itemList.ListID" : req.params.item, "EventID" : req.params.id},
+  {$set : { "itemList.$.whoseBringing": 2}},
+  function(err, item){
+    if(err)
+      console.log(err);
+    else
+      res.sendStatus(201);
+    });
+}
+
+event.deleteItem = function(req, res, next){
+  database.eventModel.findOneAndUpdate({"itemList.ListID" : req.params.item, "EventID" : req.params.id},
+  {$pull: {"itemList": {"ListID" : req.params.item}}},
+  function(err, item){
+    if(err)
+      console.log(err);
+    else
+      database.eventModel.calculateEst(req.params.id, function(result) {
+        item.totalEstCost = result[0].estCost;
+        item.totalActCost = result[0].actCost;
+        item.save(function(err) {
+          if (err)
+            console.log(err);
+          else
+            res.sendStatus(201);
+        });
+      });
+  });
+}
+
+event.updateItem = function(req, res, next){
+  database.eventModel.findOne({"itemList.ListID" : req.params.item, "EventID" : req.params.id}, function(err, result){
+    if(err)
+      console.log(err);
+    else{
+      console.log(result.itemList[0]);
+      result.itemList[0].ListID = result.itemList[0].ListID;
+      result.itemList[0].item = req.body.item || result.itemList[0].item;
+      result.itemList[0].actCost = req.body.actCost || result.itemList[0].actCost;
+      result.itemList[0].estCost = req.body.estCost || result.itemList[0].estCost;
+      result.save(function(err, result){
+        if(err)
+          console.log(err);
+        else{
+          console.log(result.itemList);
+          res.sendStatus(200);
+        }
+      });
     }
   });
 }
