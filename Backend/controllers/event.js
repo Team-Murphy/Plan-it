@@ -8,8 +8,10 @@ event.createEvent = function(req, res, next) {
     "why": req.body.why,
     "where": req.body.where,
     "when": req.body.when,
+    "endDate": req.body.endDate,
     "fromTime" : req.body.from,
-    "toTime" : req.body.to
+    "toTime" : req.body.to,
+    "picture": req.body.picture
   });
 
   event.save(function(err) {
@@ -42,11 +44,26 @@ event.getAllEvents = function(req, res, next) {
 }
 
 event.updateEvent = function(req, res, next) {
-
+  // database.eventModel.findByIdAndUpdate({
+  //   "EventID": req.params.id
+  // }, function (err, event) {
+  //   if (err)
+  //     console.log(err);
+  //   else
+  //     res.json(event);
+  // });
 }
 
 event.deleteEvent = function(req, res, next) {
-
+  console.log("inside deleteEvent in backend");
+  database.eventModel.remove({
+    "EventID": req.params.id
+  }, function (err, event) {
+    if (err)
+      console.log(err);
+    else
+      res.json(event);
+  });
 }
 
 event.createListItem = function(req, res, next) {

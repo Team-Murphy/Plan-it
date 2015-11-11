@@ -36,6 +36,8 @@ import java.util.Calendar;
 import java.util.Locale;
 
 public class ViewEventActvity extends Activity{
+
+
     Bitmap bmp;
 
     String eTitle;
@@ -43,6 +45,11 @@ public class ViewEventActvity extends Activity{
     String eLocation;
     String eFromDate;
     String eToDate;
+    String eFromTime;
+    String eToTime;
+    String eOwner;
+    IsAttending status;
+    byte[] byteArray;
 
     EditText addInvitee;
     Button addMore;
@@ -95,7 +102,7 @@ public class ViewEventActvity extends Activity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_event_actvity);
 
-
+        getBundleValues();
 
         addInvitee = (EditText)findViewById(R.id.edit_addInvitee);
         addMore = (Button)findViewById(R.id.btnInviteMore);
@@ -109,6 +116,8 @@ public class ViewEventActvity extends Activity{
         messageBoard = (Button)findViewById(R.id.btnViewMsgBoard);
         btnGoing = (Button)findViewById(R.id.btnAccept);
         btnNotGoing = (Button)findViewById(R.id.btnDecline);
+
+
 
         AttendeeListAdapter adapter = new AttendeeListAdapter(this, attendeeName, imgid, imgStatus);
         attendeeList = (ListView)findViewById(android.R.id.list);
@@ -125,10 +134,38 @@ public class ViewEventActvity extends Activity{
                 startActivityForResult(photoPickerIntent, 1);
             }
         });
-        //isAttending();
-        isOwner();
-        //isInvited();
 
+        initializeData();
+
+        if(status == IsAttending.ATTENDING){isAttending();}
+        else if(status == IsAttending.INVITED){isInvited();}
+        else if(status == IsAttending.OWNER){isOwner();}
+    }
+
+    public void getBundleValues(){
+        Intent intent = getIntent();
+        Bundle eventBundle = intent.getExtras();
+        eTitle = eventBundle.getString("eventName");
+        eDesc = eventBundle.getString("eventDescription");
+        eLocation = eventBundle.getString("eventLocation");
+        eFromDate = eventBundle.getString("eventFromDate");
+        eToDate = eventBundle.getString("eventToDate");
+        eFromTime = eventBundle.getString("eventFromTime");
+        eToTime = eventBundle.getString("eventToTime");
+        eOwner = eventBundle.getString("eventOwner");
+        status = (IsAttending) eventBundle.get("isAttending");
+        byteArray = eventBundle.getByteArray("eventPhoto");
+        boolean itemListAccess = eventBundle.getBoolean("itemList");
+        boolean messageBoardAccess = eventBundle.getBoolean("messageBoard");
+    }
+    public void initializeData(){
+        etTitle.setText(eTitle);
+        etDesc.setText(eDesc);
+        etLocation.setText(eLocation);
+        etFromDate.setText(eFromDate + " - " + eFromTime);
+        etToDate.setText(eToDate + " - " + eToTime);
+        bmp = BitmapFactory.decodeByteArray(byteArray, 0 ,byteArray.length);
+        eventImage.setImageBitmap(bmp);
     }
 
     @Override
