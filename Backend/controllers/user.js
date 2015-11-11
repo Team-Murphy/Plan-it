@@ -24,17 +24,19 @@ user.createUser = function(req, res, next ){
     //If no errors found
     if(!err)
     {
-      //console.log(data);
       //If email already exists
-      if(data.email == userObj.email)
+      if (data) 
       {
-      console.log("Email already registered.")
-      res.status(409).send('Duplicate email address found.')
-      }
-      else if(data.friendlyName == userObj.friendlyName)
-      {
-        console.log("Friendly name already taken.");
-        res.status(409).send('Duplicate friendlyName address found.');
+        if(data.email == userObj.email)
+        {
+          console.log("Email already registered.")
+          res.status(409).send('Duplicate email address found.')
+        }
+        else if(data.friendlyName == userObj.friendlyName)
+        {
+          console.log("Friendly name already taken.");
+          res.status(409).send('Duplicate friendlyName address found.');
+        }
       }
       else
       {
