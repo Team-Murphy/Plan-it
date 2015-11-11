@@ -13,6 +13,8 @@ import android.provider.MediaStore;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.text.InputType;
+import android.util.Base64;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -23,21 +25,39 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.loopj.android.http.AsyncHttpResponseHandler;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Locale;
 
+import cz.msebera.android.httpclient.Header;
+import cz.msebera.android.httpclient.entity.StringEntity;
+
 public class CreateEventActivity extends AppCompatActivity {
+
+    String base64Image;
+    byte[] imageByte;
+
     String e_name;
     String e_reason;
     String e_loc;
     String e_fromdate;
     String e_todate;
+    String e_fromTime;
+    String e_toTime;
     EditText create_fromdate;
     EditText create_todate;
     Calendar myCalendar = Calendar.getInstance();
@@ -48,6 +68,9 @@ public class CreateEventActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_event);
+
+        e_fromTime = "12:00 PM";
+        e_toTime = "5:00 PM";
 
         ImageButton submit = (ImageButton) findViewById(R.id.add_event);
         ImageButton clear = (ImageButton) findViewById(R.id.clear_event);
@@ -71,7 +94,12 @@ public class CreateEventActivity extends AppCompatActivity {
                     toast.setGravity(Gravity.CENTER, 0, 0);
                     toast.show();
                 } else {
-
+                    try {
+                        createEvent();
+                    }
+                    catch (JSONException ex){
+                        ex.printStackTrace();
+                    }
                     Intent myIntent = new Intent(CreateEventActivity.this, EventsListActivity.class);
                     startActivity(myIntent);
                 }
@@ -170,7 +198,7 @@ public class CreateEventActivity extends AppCompatActivity {
             if (requestCode == 0) {
                 Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
                 ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-                thumbnail.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
+                thumbnail.compress(Bitmap.CompressFormat.JPEG, 10, bytes);
                 File destination = new File(Environment.getExternalStorageDirectory(),
                         System.currentTimeMillis() + ".jpg");
                 FileOutputStream fo;
@@ -184,6 +212,8 @@ public class CreateEventActivity extends AppCompatActivity {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+                imageByte = bytes.toByteArray();
+                base64Image = Base64.encodeToString(imageByte, Base64.NO_WRAP);
                 viewImage.setImageBitmap(thumbnail);
             } else if (requestCode == 1) {
                 Uri selectedImageUri = data.getData();
@@ -205,8 +235,39 @@ public class CreateEventActivity extends AppCompatActivity {
                 options.inSampleSize = scale;
                 options.inJustDecodeBounds = false;
                 bm = BitmapFactory.decodeFile(selectedImagePath, options);
+
+                ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+                bm.compress(Bitmap.CompressFormat.JPEG, 10,bytes);
+                imageByte = bytes.toByteArray();
+                base64Image = Base64.encodeToString(imageByte, Base64.NO_WRAP);
                 viewImage.setImageBitmap(bm);
+
+
             }
         }
+    }
+
+    public void createEvent() throws JSONException {
+        RequestParams jdata = new RequestParams();
+        jdata.put("what",e_name);
+        jdata.put("why", e_reason);
+        jdata.put("where", e_loc);
+        jdata.put("when",e_fromdate);
+        jdata.put("endDate", e_todate);
+        jdata.put("fromTime",e_fromTime);
+        jdata.put("toTime", e_toTime);
+        jdata.put("picture", base64Image);
+        RestClient.post("events",jdata, new JsonHttpResponseHandler() {
+            public void onSuccess(String response) {
+                JSONObject res;
+                try {
+                    res = new JSONObject(response);
+                    Log.d("debug", res.getString("some_key")); // this is how you get a value out
+                } catch (JSONException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }

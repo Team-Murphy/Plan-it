@@ -3,9 +3,15 @@ package com.plan_it.mobile.plan_it;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Base64;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +21,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,10 +41,22 @@ public class EventsListAdapter extends RecyclerView.Adapter<EventsListAdapter.Ev
         TextView owner;
         TextView description;
         ImageView photo;
-        TextView date;
+        TextView fromDate;
         ImageView button1;
         ImageView button2;
         ImageView addEvent;
+
+        String location;
+        String toDate;
+        String toTime;
+        String fromTime;
+        IsAttending isAttending;
+        Bitmap bmp;
+        byte[] byteArray;
+        Bitmap eventPhoto;
+
+        boolean itemList;
+        boolean messageBoard;
 
        public EventsViewHolder(final View itemView) {
             super(itemView);
@@ -43,19 +64,38 @@ public class EventsListAdapter extends RecyclerView.Adapter<EventsListAdapter.Ev
             name = (TextView)itemView.findViewById(R.id.event_list_name);
             description = (TextView)itemView.findViewById(R.id.event_list_description);
             owner = (TextView)itemView.findViewById(R.id.event_list_owner);
-            date = (TextView)itemView.findViewById(R.id.event_list_countdown);
+            fromDate = (TextView)itemView.findViewById(R.id.event_list_countdown);
             photo = (ImageView)itemView.findViewById(R.id.event_list_photo);
             button1 = (ImageView)itemView.findViewById(R.id.event_list_button_left);
             button2 = (ImageView)itemView.findViewById(R.id.event_list_button_right);
             addEvent = (ImageView)itemView.findViewById(R.id.event_list_add_button);
             view = itemView;
 
+
            view.setOnClickListener(new View.OnClickListener() {
                @Override public void onClick(View v) {
+
+                   ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                   eventPhoto.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                   byteArray = stream.toByteArray();
+
+                   Bundle eventBundle = new Bundle();
+                   eventBundle.putString("eventName", name.getText().toString());
+                   eventBundle.putString("eventDescription", description.getText().toString());
+                   eventBundle.putString("eventLocation", location);
+                   eventBundle.putString("eventFromDate", fromDate.getText().toString());
+                   eventBundle.putString("eventToDate", toDate);
+                   eventBundle.putString("eventToTime", toTime);
+                   eventBundle.putString("eventFromTime", fromTime);
+                   eventBundle.putString("eventOwner", owner.getText().toString());
+                   eventBundle.putBoolean("itemList", itemList);
+                   eventBundle.putBoolean("messageBoard", messageBoard);
+                   eventBundle.putSerializable("isAttending", isAttending);
+                   eventBundle.putByteArray("eventPhoto", byteArray);
+
                    Intent intent = new Intent(context, ViewEventActvity.class);
+                   intent.putExtras(eventBundle);
                    context.startActivity(intent);
-                   Toast.makeText(context, name.getText() + " " + description.getText(),
-                           Toast.LENGTH_LONG).show();
                }
            });
         }
@@ -63,11 +103,16 @@ public class EventsListAdapter extends RecyclerView.Adapter<EventsListAdapter.Ev
             name.setText(event.name);
             owner.setText(event.owner);
             description.setText(event.description);
-            photo.setImageResource(event.photoId);
-            date.setText(event.date);
-            IsAttending isAttending = event.isAttending;
-            boolean itemList = event.itemList;
-            boolean messageBoard = event.messageBoard;
+            location=event.location;
+            fromDate.setText(event.fromDate);
+            toDate=event.toDate;
+            toTime=event.toTime;
+            fromTime=event.fromTime;
+            isAttending = event.isAttending;
+            itemList = event.itemList;
+            messageBoard = event.messageBoard;
+            eventPhoto = event.photoId;
+            photo.setImageBitmap(event.photoId);
         }
     }
 
