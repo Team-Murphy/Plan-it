@@ -1,3 +1,4 @@
 var config = module.exports;
 
-config.db = 'mongodb://127.0.0.1:27017/planit';
+config.db = 'mongodb://kamran:password@ds039684.mongolab.com:39684/plan-it';
+// config.db = 'mongodb://admin:password@ds042138.mongolab.com:42138/teamawesome';

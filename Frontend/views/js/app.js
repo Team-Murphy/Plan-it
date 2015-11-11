@@ -15,7 +15,7 @@ app.config(['$stateProvider',
             url: '/signup',
             views: {
                 'generalView': {
-                    templateUrl: 'signup.html'
+                    templateUrl: 'signup.html', controller: 'RegisterUserController'
                 }
             }
         })
@@ -60,7 +60,7 @@ app.config(['$stateProvider',
             }
         })
         .state('event.create', {
-            url: '',
+            url: '/new',
             views: {
                 'rightView': {
                     templateUrl: 'event.create.html', controller: 'CreateEventController'
@@ -68,7 +68,7 @@ app.config(['$stateProvider',
            }
         })
         .state('event.edit', {
-            url: '',
+            url: '/eventinfo/:eventID/edit',
             views: {
                 'rightView': {
                     templateUrl: 'event.edit.html'

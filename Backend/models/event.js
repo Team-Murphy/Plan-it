@@ -4,14 +4,15 @@ var list = require('./list');
 
 var event = new mongoose.Schema({
   EventID: Number,
-  Members: {
+  Members: [{
     UserId: mongoose.Schema.ObjectId,
+    isAttending: { type: String, enum: ['Invited', 'Attending', 'Declined', 'Left', 'Owner'] },
     Nofications: [{
         itemList: Boolean,
         messageBoard: Boolean,
-        isAttending: { type: String, enum: ['Invited', 'Attending', 'Declined', 'Left', 'Owner'] }
+
     }]
-  },
+  }],
   itemList: [list],
   totalEstCost: {type: Number, default: 0},
   totalActCost: {type: Number, default: 0},
@@ -19,9 +20,10 @@ var event = new mongoose.Schema({
   why: String,
   where: String,
   when: String,
+  endDate: String,
   picture: String,
-  fromTime: Number,
-  toTime: Number
+  fromTime: String,
+  toTime: String
 });
 
 module.exports = event;
