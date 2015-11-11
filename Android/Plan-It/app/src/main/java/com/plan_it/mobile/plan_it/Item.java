@@ -6,14 +6,14 @@ package com.plan_it.mobile.plan_it;
 public class Item {
     int listID;
     String item;
-    String whoseBringing;
+    String providing;
     double estCost;
     double actCost;
 
-    Item(int listID, String item, String whoseBringing, double estCost, double actCost){
+    Item(int listID, String item, String providing, double estCost, double actCost){
     this.listID = listID;
         this.item = item;
-        this.whoseBringing = whoseBringing;
+        this.providing = providing;
         this.estCost = estCost;
         this.actCost = actCost;
     }
