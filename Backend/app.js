@@ -34,18 +34,15 @@ app.post("/events", eventCtrl.createEvent);
 app.get("/events/:id", eventCtrl.getEventById);
 app.get("/events", eventCtrl.getAllEvents);
 app.post("/user", userCtrl.createUser);
-<<<<<<< HEAD
 app.post('/events/:id/list', eventCtrl.createListItem);
 app.get('/events/:id/list', eventCtrl.getListItems);
 app.post('/events/:id/list/:item', eventCtrl.claimItem);
 app.delete('/events/:id/list/:item', eventCtrl.deleteItem);
 app.put('/events/:id/list/:item', eventCtrl.updateItem);
-=======
-app.post("/events/:id/update", eventCtrl.updateEvent);
+app.put("/events/:id", eventCtrl.updateEvent);
 app.delete("/events/:id", eventCtrl.deleteEvent);
 app.post("/events/:id/list", eventCtrl.createListItem);
 app.get("/events/:id/list", eventCtrl.getListItems);
->>>>>>> e6dd943f4c488b2bc3affaddd6e0be4295ec4627
 app.post("/user/:id/friend", userCtrl.addNewFriend);
 app.get("/user/:id/friend", userCtrl.getAllFriends);
 app.get("/search/:id/user", userCtrl.findUserByID);

@@ -44,14 +44,28 @@ event.getAllEvents = function(req, res, next) {
 }
 
 event.updateEvent = function(req, res, next) {
-  // database.eventModel.findByIdAndUpdate({
-  //   "EventID": req.params.id
-  // }, function (err, event) {
-  //   if (err)
-  //     console.log(err);
-  //   else
-  //     res.json(event);
-  // });
+  database.eventModel.findOne({"EventID" : req.params.id}, function(err, event){
+    if(err)
+      console.log(err);
+    else{
+      event.EventID = event.EventID;
+      event.what = req.body.what || event.what;
+      event.why = req.body.why || event.why;
+      event.where = req.body.where || event.where;
+      event.when = req.body.when || event.when;
+      event.endDate = req.body.endDate || event.endDate;
+      event.fromTime = req.body.fromTime || event.fromTime;
+      event.toTime = req.body.toTime || event.toTime;
+      event.picture = req.body.picture || event.picture;
+      event.save(function(err, result){
+        if(err)
+          console.log(err);
+        else{
+          res.sendStatus(200);
+        }
+      });
+    }
+  });
 }
 
 event.deleteEvent = function(req, res, next) {
