@@ -3,23 +3,40 @@ angular.module('eventController', [])
   //Create a scope to determine if form has been submitted
   $scope.submitted = false;
 
-//Method called when the form is submitted
-$scope.createEvent = function(){
-  console.log($scope.event);
-    //If the form fields are all valid
-  if ($scope.new_event_form.$valid) {
-    console.log($scope.new_event_form);
-    //Call the addEvent method of Event Service to create a new event.
-  ServiceForEvents.addEvent($scope.event).success(function (data)
-  {
-    console.log("Event Created.")
-    $window.location.reload();  
-  });
-}
-else {
-    $scope.new_event_form.submitted = true;
-}
-}
+  $scope.imageUpload = function(event){
+    var file = event.target.files[0];
+    var reader = new FileReader();
+    reader.onload = $scope.imageIsLoaded; 
+    reader.readAsDataURL(file);
+  }
+  $scope.imageIsLoaded = function(e){
+    $scope.$apply(function() {
+      $scope.step = e.target.result;
+      // console.log(e.target.result);
+    });
+   }
+
+  //Method called when the form is submitted
+  $scope.createEvent = function(){
+
+    $scope.event.picture =  $scope.step.replace('data:image/jpeg;base64,', '');
+            
+    console.log($scope.event);
+      //If the form fields are all valid
+    if ($scope.new_event_form.$valid)
+    {
+      console.log($scope.new_event_form);
+      //Call the addEvent method of Event Service to create a new event.
+      ServiceForEvents.addEvent($scope.event).success(function (data)
+      {
+        console.log("Event Created.")
+        // $window.location.reload();  
+      });
+    }
+    else {
+        $scope.new_event_form.submitted = true;
+    }
+  }
 
 })
 .controller('EventListController', function ($scope, ServiceForEvents){

@@ -1,11 +1,12 @@
 
+
 <div class="row">
 <form class="form-group col-md-offset-1" name="new_event_form" id="createEvent" novalidate ng-submit="createEvent()">
 
     <h4 class="wh">What <small>shall we call the event</small></h4>
     <span class="error" ng-show="new_event_form.what.$error.required && new_event_form.submitted">Cannot leave what field empty.</span>
     <span class="error" ng-show="new_event_form.what.$error.pattern">Not a valid title.</span>
-    <input class="form-control" type="text" ng-model="event.what" name="what" id="what" placeholder="Title" ng-pattern="" required />
+    <input class="form-control" type="text" ng-model="event.what" name="what" id="what" placeholder="Title" ng-pattern="" required>
 
     <h4 class="wh">Where <small>is the event taking place</small></h4>
     <span class="error" ng-show="new_event_form.where.$error.required && new_event_form.submitted">Cannot leave where field empty.</span>
@@ -32,20 +33,13 @@
     <span class="error" ng-show="new_event_form.why.$error.pattern"></span>
     <textarea class="form-control" rows="3" ng-model="event.why" name="why" id="why" form="createEvent" required>Description</textarea>
 
-    <br>
+    <h4 class="wh">Event <small>image</small></h4>
+    <input class="form-control" type="text" ng-model="event.picture" name="picture" id="picture" placeholder="Picture string"><br>
 
-    <h4 class="wh">Invite <small>people</small></h4>
-    <ul class="invitee">
-        <li><span class="input-group-addon"><input type="checkbox"> Amina Abbasi</span></li>
-        <li><span class="input-group-addon"><input type="checkbox"> Clark Kent</span></li>
-        <li><span class="input-group-addon"><input type="checkbox"> Kamran Syed</span></li>
-        <li><span class="input-group-addon"><input type="checkbox"> Kevin Murphy</span></li>
-        <li><span class="input-group-addon"><input type="checkbox"> Kristian Castaneda</span></li>
-        <li><span class="input-group-addon"><input type="checkbox"> Luke Skywalker</span></li>
-        <li><span class="input-group-addon"><input type="checkbox"> Luke Farnell</span></li>
-        <li><span class="input-group-addon"><input type="checkbox"> Mohammed Sumon</span></li>
-        <li><span class="input-group-addon"><input type="checkbox"> Patrick Star</span></li>
-    </ul>
+    <img class="thumb" id="preview" ng-src="{{step}}" ng-model="event.picture"><br>
+    <input type="file" ng-model-instant onchange="angular.element(this).scope().imageUpload(event)">
+    
+    <br><br>
 
     <div style="text-align: center;">
         <input class="btn btn-default" type="reset" ng-click="reset()" value="Clear">

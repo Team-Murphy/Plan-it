@@ -23,7 +23,7 @@ app.disable('etag');
 //Enable CORS on server
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
-res.header('Access-Control-Allow-Methods', 'DELETE');
+  res.header('Access-Control-Allow-Methods', 'DELETE');
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
@@ -34,12 +34,7 @@ app.post("/events", eventCtrl.createEvent);
 app.get("/events/:id", eventCtrl.getEventById);
 app.get("/events", eventCtrl.getAllEvents);
 app.post("/user", userCtrl.createUser);
-app.post('/events/:id/list', eventCtrl.createListItem);
-app.get('/events/:id/list', eventCtrl.getListItems);
-app.post('/events/:id/list/:item', eventCtrl.claimItem);
-app.delete('/events/:id/list/:item', eventCtrl.deleteItem);
-app.put('/events/:id/list/:item', eventCtrl.updateItem);
-app.put("/events/:id", eventCtrl.updateEvent);
+app.post("/events/:id/update", eventCtrl.updateEvent);
 app.delete("/events/:id", eventCtrl.deleteEvent);
 app.post("/events/:id/list", eventCtrl.createListItem);
 app.get("/events/:id/list", eventCtrl.getListItems);

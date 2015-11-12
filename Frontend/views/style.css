@@ -239,3 +239,9 @@ nav {
   text-align: left !important;
   background-color: #fff !important;
 }
+#preview {
+  /*text-align: center;*/
+  /*border: 1px #666 solid;*/
+  max-height: 100px;
+  max-width: 100px;
+}
