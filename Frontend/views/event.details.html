@@ -3,11 +3,16 @@
 <div class="row col-md-11 col-md-offset-1">
 
     <div style="float:right;">
-        <span class="glyphicon glyphicon-picture" style="font-size:6em; color:#0B3B39;"> </span><br>
+        <!-- <span class="glyphicon glyphicon-picture" style="font-size:6em; color:#0B3B39;"> </span><br> -->
+        <img class="img-thumbnail eventphoto" src="{{event.picture}}">
         <br>
+        <button class="btn btn-sm btn-primary btn-block" ui-sref="event.edit">
+            <span class="glyphicon glyphicon-pencil"> UPDATE</span>
+        </button>
+        <button class="btn btn-sm btn-danger btn-block" ng-click="deleteEvent()">
+            <span class="glyphicon glyphicon-trash"> LEAVE</span>
+        </button><br>
         <!-- 'Leave' technically means 'Delete' for admin  -->
-        <button class="btn btn-default" ng-click="deleteEvent()"><span class="glyphicon glyphicon-trash"> Leave</span></button><br>
-        <button class="btn btn-default" ui-sref="event.edit"><span class="glyphicon glyphicon-pencil"> Update</span></button><br>
         <!-- <span class="glyphicon glyphicon-bell"> 2</span> -->
     </div>
 

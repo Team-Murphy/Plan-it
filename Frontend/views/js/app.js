@@ -1,5 +1,5 @@
 // var app = angular.module('planItApp', ['ngRoute']);
-var app = angular.module('planItApp', ['ui.router', 'services', 'eventController']);
+var app = angular.module('planItApp', ['ui.router', 'services', 'controller']);
 
 //to route views on single page
 app.config(['$stateProvider',

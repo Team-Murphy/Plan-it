@@ -1,4 +1,4 @@
-angular.module('eventController', [])
+angular.module('controller', [])
 .controller('CreateEventController', function ($window, $scope, ServiceForEvents){
   //Create a scope to determine if form has been submitted
   $scope.submitted = false;

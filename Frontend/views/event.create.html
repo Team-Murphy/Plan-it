@@ -32,6 +32,15 @@
     <span class="error" ng-show="new_event_form.why.$error.pattern"></span>
     <textarea class="form-control" rows="3" ng-model="event.why" name="why" id="why" form="createEvent" required>Description</textarea>
 
+<<<<<<< HEAD
+    <h4 class="wh">Event <small>icon</small></h4>
+    <!-- <input class="form-control" type="text" ng-model="event.picture" name="picture" id="picture" placeholder="Picture string"> -->
+    <br><br>
+    <img class="thumb" id="preview" ng-src="{{step}}" ng-model="event.picture"><br>
+    <input type="file" ng-model-instant onchange="angular.element(this).scope().imageUpload(event)">
+    
+    <br><br>
+=======
     <br>
 
     <h4 class="wh">Invite <small>people</small></h4>
@@ -46,6 +55,7 @@
         <li><span class="input-group-addon"><input type="checkbox"> Mohammed Sumon</span></li>
         <li><span class="input-group-addon"><input type="checkbox"> Patrick Star</span></li>
     </ul>
+>>>>>>> parent of d786b94... adding image to create event
 
     <div style="text-align: center;">
         <input class="btn btn-default" type="reset" ng-click="reset()" value="Clear">
