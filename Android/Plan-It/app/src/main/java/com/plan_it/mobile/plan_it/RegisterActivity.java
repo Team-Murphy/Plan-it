@@ -1,5 +1,6 @@
 package com.plan_it.mobile.plan_it;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -96,8 +97,8 @@ public class RegisterActivity extends AppCompatActivity {
                 public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
                     Toast.makeText(getApplicationContext(),responseBody.toString(),Toast.LENGTH_LONG).show();
 
-                    //Intent intent=new Intent(RegisterActivity.this,EventsListActivity.class);
-                    //startActivity(intent);
+                    Intent intent=new Intent(RegisterActivity.this,EventsListActivity.class);
+                    startActivity(intent);
                 }
 
                 @Override
