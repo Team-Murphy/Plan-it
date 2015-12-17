@@ -752,7 +752,7 @@ public class ViewEventActvity extends AppCompatActivity {
     };
 
     private void updateLabel(int id) {
-        String myFormat = "MM/dd/yyyy"; //In which you need put here
+        String myFormat = "dd/MM/yyyy"; //In which you need put here
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.CANADA );
         switch(id) {
             case 0:

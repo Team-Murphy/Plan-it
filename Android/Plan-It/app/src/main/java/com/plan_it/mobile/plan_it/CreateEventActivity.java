@@ -82,8 +82,9 @@ public class CreateEventActivity extends AppCompatActivity {
         create_todate = (EditText) findViewById(R.id.event_createtodate);
         create_fromtime=(EditText) findViewById(R.id.event_createfromtime);
         create_totime=(EditText) findViewById(R.id.event_createtotime);
+        viewImage=(ImageView)findViewById((R.id.create_eventphoto));
 
-
+        viewImage.setImageResource((R.drawable.no_image));
 
         create_fromtime.setInputType(InputType.TYPE_NULL);
         create_fromtime.setOnTouchListener(lister);
@@ -258,7 +259,7 @@ public class CreateEventActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
     private void updateLabel(int id) {
-        String myFormat = "MM/dd/yyyy"; //In which you need put here
+        String myFormat = "dd/MM/yyyy"; //In which you need put here
         SimpleDateFormat sdf = new SimpleDateFormat(myFormat, Locale.CANADA);
         switch (id) {
             case 0:
