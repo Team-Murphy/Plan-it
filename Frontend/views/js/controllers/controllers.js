@@ -614,6 +614,7 @@ angular.module('controller', ['angularMoment'])
       console.log("successfully changed " + statusToUpdate + " of " + idToUpdate);
       $scope.getBudget();
     });
+    $window.location.reload();
   };
 
   $scope.checkIsOwner = function(){
