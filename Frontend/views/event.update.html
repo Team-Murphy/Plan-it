@@ -17,13 +17,13 @@
         <h4>When <small>does the event start</small></h4>
         <!-- <input class="form-control" type="datetime-local" ng-model="event.when" required> -->
         <!-- datetime-local does not work for IE or FF -->
-        <input class="form-control" type="text" class="datepicker" data-provide="datepicker" ng-model="event.when" name="when" id="when" placeholder="MM/DD/YYYY" required>
+        <input class="form-control" type="text" class="datepicker" data-provide="datepicker" ng-model="event.when" name="when" id="when" placeholder="DD/MM/YYYY" required>
         <input class="form-control" type="text" class="bootstrap-timepicker timepicker" data-default-time="false" ng-model="event.fromTime" name="fromTime" id="fromTime" placeholder="HH:MM AM/PM" required>
     </span>
     <span class="end">
         <h4><small>end</small></h4>
         <!-- <input class="form-control" type="datetime-local" ng-model="event.endDate" required> -->
-        <input class="form-control" type="text" class="datepicker" data-provide="datepicker" ng-model="event.endDate" name="endDate" id="endDate" placeholder="MM/DD/YYYY" required>
+        <input class="form-control" type="text" class="datepicker" data-provide="datepicker" ng-model="event.endDate" name="endDate" id="endDate" placeholder="DD/MM/YYYY" required>
         <input class="form-control" type="text" class="bootstrap-timepicker timepicker" data-default-time="false" ng-model="event.toTime" name="toTime" id="toTime" placeholder="HH:MM AM/PM" required>
     </span>
     <!-- missing "when" error message, doesn't fit well in layout, maybe use javascript to focus the field -->
